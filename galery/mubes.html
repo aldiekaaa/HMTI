@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HMTI</title>
+    <link rel="icon" type="image/x-icon" href="/../assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c748089771.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <style type="text/tailwindcss"></style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+        .dropdown-menu {
+          @apply absolute m-0 py-1 invisible opacity-0 transition-all ease-in-out;
+        }
+
+        .dropdown-menu a {
+          @apply text-white min-w-[135px] w-full block py-2 px-4 bg-[#1746F9] hover:bg-[#FFD900];
+        }
+
+        .dropdown:hover .dropdown-menu {
+          @apply visible opacity-100;
+        }
+
+        .dropdown {
+          @apply relative cursor-pointer hover:underline;
+        }
+        .dropdown > span.caret {
+          @apply absolute h-[20px] w-[12px] -right-5 top-4 transform -translate-y-1/2;
+          content: url('data:image/svg+xml;charset=UTF-8, <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.666992 0.666748L4.33366 4.66675L8.00033 0.666748" stroke="white"/></svg>');
+        }
+        .bgc {
+    background: linear-gradient(90.33deg, #1746f9 -0.22%, #1a3ab3 82.88%, #1e2748 113.74%);
+  }
+      }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER START -->
+    <nav class="fixed w-full z-50">
+        <div class="bgc drop-shadow-lg relative ">
+            <div class="container mx-auto">
+                <div class="p-5 flex justify-between items-center">
+                    <div
+                        class="flex items-center gap-2 text-[30px] font-fair font-bold w-[50px] text-white border rounded-full">
+                        <img src="../assets/logo_hmti.jpg" alt="" />
+                        <span>HMTI</span>
+                    </div>
+
+                    <ul class="flex gap-14 text-white text-[18px]">
+                        <li class="dropdown">
+                            <a href="#">Tentang</a>
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Galeri</a>
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Event</a>
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Informasi</a>
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                                <li><a href="#">sejarah</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <button class="py-2 px-5 bg-[#FFD900] rounded-full text-[15px] font-mont">Kontak Kami</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- HEADER END -->
+
+    <div class="py-24"></div>
+
+    <div class="container w-[1300px] mx-auto">
+        <div class="text-left">
+            <div class="w-[350px] py-5">
+                <h1 class="font-bold text-3xl">Musyawarah Besar HMTI 2021</h1>
+            </div>
+            <div class="py-5">
+                <p class="text-gray-400 font-extralight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                    eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus
+                    sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet
+                    feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus
+                    ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis
+                    convallis diam sit amet lacinia. Aliquam in elementum tellus.</p>
+            </div>
+            <!-- GALLERY 1 -->
+            <div class="grid grid-cols-3 gap-5 py-5">
+                <div class="col-span-2">
+                    <img class="rounded-xl w-[855px]" src="../assets/img-slide-2.jpg" alt="">
+                </div>
+                <div class="row-span-2">
+                    <img class="rounded-xl h-[724px] w-[420px]" src="../assets/Mask group.png" alt="">
+                </div>
+                <div class="col-span-2">
+                    <img class="rounded-xl w-[855px]" src="../assets/img-slide-2.jpg" alt="">
+                </div>
+            </div>
+
+            <!-- GALLERY 2 -->
+
+            <div class="grid grid-cols-3 gap-5 py-5">
+                <div class="row-span-2">
+                    <img class="rounded-xl h-[724px] w-[420px]" src="../assets/Mask group.png" alt="">
+                </div>
+                <div class="col-span-2">
+                    <img class="rounded-xl w-[855px]" src="../assets/img-slide-2.jpg" alt="">
+                </div>
+                <div class="col-span-2">
+                    <img class="rounded-xl w-[855px]" src="../assets/img-slide-2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALLERY END -->
+
+    <!-- FOOTER START -->
+    <footer>
+        <div class="bgc p-14">
+            <div class="container mx-auto">
+                <div class="flex gap-32">
+                    <div class="text-white">
+                        <h1 class="text-[30px] font-bold">HMTI</h1>
+                        <p class="w-[200px] py-6">Jl. Raya Cibatu Cisaat No.21, Cibolang Kaler, Kec. Cisaat, Kabupaten
+                            Sukabumi,
+                            Jawa Barat 43152</p>
+                        <p>Email: hmti.nusaputra@ic.id</p>
+                        <p>Website: hmti.nusaputra.ic.id</p>
+                        <div class="flex gap-4 py-8">
+                            <img src="/../assets/icon_fb.svg" alt="" />
+                            <img src="/../assets/icon_ig.svg" alt="" />
+                            <img src="/../assets/icon_yt.svg" alt="" />
+                        </div>
+                    </div>
+
+                    <div class="text-white">
+                        <h1 class="text-[30px] font-bold">Informasi</h1>
+                        <ul class="text-[20px] py-6 grid gap-6">
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="text-white">
+                        <h1 class="text-[30px] font-bold">Informasi</h1>
+                        <ul class="text-[20px] py-6 grid gap-6">
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="text-white">
+                        <h1 class="text-[30px] font-bold">Informasi</h1>
+                        <ul class="text-[20px] py-6 grid gap-6">
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                            <li><a href="#">berita</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-b-2"></div>
+                <div class="text-white text-center pt-6">
+                    <p>Himpunan Mahasiswa Teknik Infotmatika © 2022 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    <style type="text/css">
+        * {}
+    </style>
+</body>
+
+</html>

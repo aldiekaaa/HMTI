@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>HMTI - Hukam</title>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/assets/favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap"
+			rel="stylesheet" />
+		<script src="https://kit.fontawesome.com/c748089771.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+		<link rel="stylesheet" href="/style/style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="/tailwind.config.js"></script>
+		<style type="text/tailwindcss"></style>
+		<!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
+		<style type="text/tailwindcss">
+			@layer utilities {
+				.dropdown-menu {
+					@apply absolute m-0 py-1 invisible opacity-0 transition-all ease-in-out;
+				}
+
+				.dropdown-menu a {
+					@apply text-white min-w-[135px] w-full block py-2 px-4 bg-[#1746F9] hover:bg-[#FFD900];
+				}
+
+				.dropdown:hover .dropdown-menu {
+					@apply visible opacity-100;
+				}
+
+				.dropdown {
+					@apply relative cursor-pointer hover:underline;
+				}
+				.dropdown > span.caret {
+					@apply absolute h-[20px] w-[12px] -right-5 top-4 transform -translate-y-1/2;
+					content: url('data:image/svg+xml;charset=UTF-8, <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.666992 0.666748L4.33366 4.66675L8.00033 0.666748" stroke="white"/></svg>');
+				}
+			}
+
+			@layer utilities {
+				.bgc {
+					background: linear-gradient(
+						90.33deg,
+						#1746f9 -0.22%,
+						#1a3ab3 82.88%,
+						#1e2748 113.74%
+					);
+				}
+			}
+		</style>
+	</head>
+
+<body>
+	<!-- HEADER START -->
+	<header class="container">
+		<nav
+			class=" bg-gradient-to-r from-primary to-gray-800 px-2 sm:px-4 py-2.5 fixed w-full z-50 top-0 left-0 font-raleway shadow-xl">
+			<div class="container flex flex-wrap items-center justify-between mx-auto">
+				<a href="#" class="flex items-center">
+					<img src="/assets/Logo-HMTI.png" class="h-10 mr-2 md:h-14 md:mr-3" alt="HMTI LOGO" />
+					<span
+						class="text-white self-center text-xl font-semibold whitespace-nowrap dark:text-white">HMTI</span>
+				</a>
+				<div class="flex md:order-2">
+					<a class="invisible lg:visible" href="/contact/index.html"><button type="button"
+							class="text-gray-600 rounded-full bg-yellow-400 font-semibold text-sm px-5 py-2.5 text-center mr-3 md:mr-0 hover:bg-blue-700 hover:text-white duration-500">
+							Kontak Kami
+						</button></a>
+					<button data-collapse-toggle="navbar-sticky" type="button"
+						class="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden focus:bg-primary duration-300"
+						aria-controls="navbar-sticky" aria-expanded="false">
+						<span class="sr-only"> Open main menu </span>
+						<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd"
+								d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+								clip-rule="evenodd"></path>
+						</svg>
+					</button>
+				</div>
+				<div class="text-white bg-transparent items-center justify-between hidden w-full md:flex md:w-auto md:order-1 duration-300"
+					id="navbar-sticky">
+					<ul
+						class="flex flex-col p-4 mt-4 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent">
+						<!-- Navbar Tentang -->
+						<li>
+							<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+								class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white rounded hover:bg-secondary md:hover:bg-transparent md:border-0 md:hover:text-yellow-200 md:p-0 md:w-auto">
+								Tentang
+								<svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
+							</button>
+							<!-- Dropdown menu -->
+							<div id="dropdownNavbar"
+								class="z-10 hidden font-medium bg-white divide-y divide-gray-100 rounded shadow w-44 ">
+								<ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+									<li>
+										<a href="/about/index.html"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">Tentang
+											Kami</a>
+									</li>
+									<li>
+										<a href="/filosofi/index.html"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">Penjelasan
+											Logo</a>
+									</li>
+									<li>
+										<a href="/visi/index.html"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">Visi
+											Misi</a>
+									</li>
+									<li>
+										<a href="/divisi/index.html"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">Struktur
+											Organisasi</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+
+						<!-- Navbar Galeri -->
+						<li>
+							<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar2"
+								class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white rounded hover:bg-secondary md:hover:bg-transparent md:border-0 md:hover:text-yellow-200 md:p-0 md:w-auto">
+								Galeri
+								<svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
+							</button>
+							<!-- Dropdown menu -->
+							<div id="dropdownNavbar2"
+								class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded shadow w-44 ">
+								<ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+									<li>
+										<a href="#"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Dokumentasi
+											Kegiatan</a>
+									</li>
+									<li>
+										<a href="/konten/index.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">HMTI
+											Konten</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<!-- Navbar Galeri -->
+
+						<!-- Navbar Event -->
+						<li>
+							<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar3"
+								class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white rounded hover:bg-secondary md:hover:bg-transparent md:border-0 md:hover:text-yellow-200 md:p-0 md:w-auto">
+								Event
+								<svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
+							</button>
+							<!-- Dropdown menu -->
+							<div id="dropdownNavbar3"
+								class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded shadow w-44 ">
+								<ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+									<li>
+										<a href="https://sentimeter.nusaputra.ac.id/" target="_blank"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">SENTIMETER</a>
+									</li>
+									<li>
+										<a href="https://www.instagram.com/p/CabkQD9BDSZ/?igshid=YmMyMTA2M2Y="
+											target="_blank"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">HMTI
+											E-Sport</a>
+									</li>
+									<li>
+										<a href="https://techfest.org/" target="_blank"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">Tech
+											Fest</a>
+									</li>
+									<li>
+										<a href="https://lummoshop.com/hmtistore" target="_blank"
+											class="block px-4 py-2 hover:text-white hover:bg-blue-500 hover:bg-blue-500">Danus</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<!-- Navbar Event -->
+
+						<!-- Navbar Informasi -->
+						<li>
+							<button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar5"
+								class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white rounded hover:bg-secondary md:hover:bg-transparent md:border-0 md:hover:text-yellow-200 md:p-0 md:w-auto">
+								Informasi
+								<svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
+							</button>
+							<!-- Dropdown menu -->
+							<div id="dropdownNavbar5"
+								class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded shadow w-44 ">
+								<ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+									<li>
+										<a href="/berita/index.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Berita</a>
+									</li>
+									<li>
+										<a href="/kegiatan/index.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Kegiatan</a>
+									</li>
+									<li>
+										<a href="/lomba/index.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Lomba</a>
+									</li>
+									<li>
+										<a href="/magang/index.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Magang</a>
+									</li>
+									<li>
+										<a href="/prestasi/prestasi.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Prestasi</a>
+									</li>
+									<li>
+										<a href="/konten/index.html"
+											class="block px-4 py-2 hover:bg-g-whitext-white hover:text-white hover:bg-blue-500">Konten</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<!-- Navbar Informasi -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- HEADER END -->
+
+	<div class="py-24"></div>
+
+	<!-- BADAN PENGURUS HARIAN START -->
+	<div class="container mx-auto">
+		<div class="flex justify-center text-center">
+			<div class="m-auto">
+				<div class="relative md:w-[1032px] px-10">
+					<h1 class="md:text-3xl text-xl tracking-wide font-bold">
+						HUKUM DAN KEAMANAN
+					</h1>
+					<p class="text-sm text-gray-500 py-10">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+						turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+						nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
+						tellus elit sed risus. Maecenas eget condimentum velit, sit amet
+						feugiat lectus. Class aptent taciti sociosqu ad litora.
+					</p>
+				</div>
+				<div class="absolute pt-5 left-1/2 -translate-x-1/2 items-center">
+					<ul class="flex justify-center gap-5 md:gap-10">
+						<li class="hover:border-b-4 border-[#FFD900] border-b-4">
+							<a href="">Semua</a>
+						</li>
+						<li class="hover:border-b-4 border-[#FFD900] duration-100">
+							<a href="">Ketua</a>
+						</li>
+						<li class="hover:border-b-4 border-[#FFD900] duration-100">
+							<a href="">Sekretaris</a>
+						</li>
+						<li class="hover:border-b-4 border-[#FFD900] duration-100">
+							<a href="">Bendahara</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid md:grid-cols-4 gap-y-10 md:px-32 py-20">
+		<div class="relative shadow-2xl w-[250px] rounded-3xl mx-auto md:mx-0 hover:-translate-y-2 duration-300">
+			<img src="../assets/sample portrait.png" alt="" />
+			<div class="absolute bottom-0 py-5 px-5 filter-none">
+				<h3 class="font-bold">Sahrul Ismail Usman</h3>
+				<h6>Ketua Himpunan</h6>
+			</div>
+		</div>
+		<div class="relative shadow-2xl w-[250px] rounded-3xl mx-auto md:mx-0 hover:-translate-y-2 duration-300">
+			<img src="../assets/sample portrait.png" alt="" />
+			<div class="absolute bottom-0 py-5 px-5">
+				<h3 class="font-bold">M Fadil Amin</h3>
+				<h6>Wakil Ketua Himpunan</h6>
+			</div>
+		</div>
+		<div class="relative shadow-2xl w-[250px] rounded-3xl mx-auto md:mx-0 hover:-translate-y-2 duration-300">
+			<img src="../assets/sample portrait.png" alt="" />
+			<div class="absolute bottom-0 py-5 px-5">
+				<h3 class="font-bold">Anggia Putri W S</h3>
+				<h6>Sekretaris</h6>
+			</div>
+		</div>
+		<div class="relative shadow-2xl w-[250px] rounded-3xl mx-auto md:mx-0 hover:-translate-y-2 duration-300">
+			<img src="../assets/sample portrait.png" alt="" />
+			<div class="absolute bottom-0 py-5 px-5">
+				<h3 class="font-bold">Evi Septiyani S</h3>
+				<h6>Bendahara</h6>
+			</div>
+		</div>
+	</div>
+	<!-- BADAN PENGURUS HARIAN END -->
+
+	<!-- FOOTER START -->
+	<footer class="p-4 bg-gradient-to-r from-primary to-gray-800 sm:p-6">
+		<div class="container md:flex md:justify-between">
+			<div class="mb-6 md:mb-0">
+				<a href="#" class="flex items-center">
+					<img src="/assets/logo_hmti.jpg" class="mr-3 h-8" alt="Logo HMTI" />
+					<span
+						class="self-center text-white text-2xl font-semibold whitespace-nowrap dark:text-white">HMTI</span>
+				</a>
+				<div class="mb-6 mt-4">
+					<p class="text-white">
+						Jl. Raya Cibatu Cisaat No.21, <br />
+						Cibolang Kaler, Kec. Cisaat, <br />
+						Kabupaten Sukabumi,<br />
+						Jawa Barat 43152
+					</p>
+				</div>
+				<p class="text-white">
+					Email:
+					<a href="mailto:hmti.nusaputra@ic.id?subject = Feedback&body = Message"
+						class="hover:underline hover:text-secondary">hmti.nusaputra@ic.id</a>
+				</p>
+				<p class="text-white mb-4">
+					Website:
+					<a href="/index.html" class="hover:underline hover:text-secondary">hmti.nusaputra.ic.id</a>
+				</p>
+				<div class="flex mt-4 space-x-6 sm:mt-0">
+					<a href="https://www.facebook.com/" class="text-white hover:text-gray-900 dark:hover:text-white"
+						target="_blank">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path fill-rule="evenodd"
+								d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+								clip-rule="evenodd" />
+						</svg>
+						<span class="sr-only">Facebook page</span>
+					</a>
+					<a href="https://instagram.com/hmti_unsp?igshid=N2ZiY2E3YmU="
+						class="text-white hover:text-gray-900 dark:hover:text-white" target="_blank">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path fill-rule="evenodd"
+								d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+								clip-rule="evenodd" />
+						</svg>
+						<span class="sr-only">Instagram page</span>
+					</a>
+					<a href="https://youtube.com/@hmtiuniversitasnusaputra3200"
+						class="text-white hover:text-gray-900 dark:hover:text-white" target="_blank">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+						</svg>
+						<span class="sr-only">Youtube page</span>
+					</a>
+				</div>
+			</div>
+			<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+				<div>
+					<h2 class="mb-6 text-sm font-bold uppercase text-white">
+						Informasi
+					</h2>
+					<ul class="text-white">
+						<li class="mb-4">
+							<a href="/berita/index.html" class="hover:underline hover:text-secondary">Berita</a>
+						</li>
+						<li class="mb-4">
+							<a href="/kegiatan/index.html" class="hover:underline hover:text-secondary">Kegiatan</a>
+						</li>
+						<li class="mb-4">
+							<a href="/lomba/index.html" class="hover:underline hover:text-secondary">Lomba</a>
+						</li>
+						<li class="mb-4">
+							<a href="/magang/index.html" class="hover:underline hover:text-secondary">Magang</a>
+						</li>
+						<li class="mb-4">
+							<a href="/prestasi/prestasi.html" class="hover:underline hover:text-secondary">Prestasi</a>
+						</li>
+						<li class="mb-4">
+							<a href="/konten/index.html" class="hover:underline hover:text-secondary">Konten</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="mb-6 text-sm font-bold uppercase text-white">
+						Kontak
+					</h2>
+					<ul class="text-white">
+						<li class="mb-4">
+							<a href="/login/index.html" class="hover:underline hover:text-secondary"
+								target="_blank">Admin</a>
+						</li>
+						<li class="mb-4">
+							<a href="https://nusaputra.ac.id/" class="hover:underline hover:text-secondary"
+								target="_blank">Kampus</a>
+						</li>
+						<li class="mb-4">
+							<a href="/contact/index.html" class="hover:underline hover:text-secondary"
+								target="_blank">Kritik Saran</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="mb-6 text-sm font-bold uppercase text-white">
+						Tautan Penting
+					</h2>
+					<ul class="text-white">
+						<li class="mb-4">
+							<a href="https://sentimeter.nusaputra.ac.id/" class="hover:underline hover:text-secondary"
+								target="_blank">SENTIMETER</a>
+						</li>
+						<li class="mb-4">
+							<a href="https://www.instagram.com/p/CabkQD9BDSZ/?igshid=YmMyMTA2M2Y="
+								class="hover:underline hover:text-secondary" target="_blank">HMTI E-Sport</a>
+						</li>
+						<li class="mb-4">
+							<a href="https://techfest.org/" class="hover:underline hover:text-secondary"
+								target="_blank">Tech Fest</a>
+						</li>
+						<li class="mb-4">
+							<a href="https://lummoshop.com/hmtistore" class="hover:underline hover:text-secondary"
+								target="_blank">Danus</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<hr class="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-6" />
+		<div class="container grid place-content-center sm:flex sm:items-center">
+			<span class="text-sm text-white sm:text-center dark:text-gray-400"><a href="/index.html"
+					class="hover:underline">Himpunan Mahasiswa Teknik Informatika </a>© 2022 All Rights Reserved.
+			</span>
+		</div>
+	</footer>
+	<!-- FOOTER END -->
+	</style>
+	<script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+</body>
+
+</html>
